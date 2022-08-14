@@ -1,0 +1,29 @@
+ll find(ll a)
+{
+    if(a==par[a])
+    {
+        return a;
+    }
+    return par[a]=find(par[a]);
+}
+void union(ll a,ll b)
+{
+    a=find(a);
+    b=find(b);
+    if(a!=b)
+    {
+        if(rank[a]<rank[b])
+        {
+            par[a]=b;
+        }
+        else if(rank[a]>rank[b])
+        {
+            par[b]=a;
+        }
+        else
+        {
+            par[b]=a;
+            rank[a]++;
+        }
+    }
+}
